@@ -1,0 +1,90 @@
+﻿@page
+@model BIg_NewsRazor.Pages.NoticiasModel
+
+@{
+    ViewData["Title"] = "Noticias";
+}
+
+<h1>Noticias</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].Contenido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].FechaPublicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].UrlNoticia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].UrlImagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].AutorNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].CategoriaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].EstadoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Noticia[0].PaisNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Noticia) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contenido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaPublicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlNoticia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlImagen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutorNavigation.IdAutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaNavigation.IdCategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoNavigation.IdEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaisNavigation.IdPais)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdNoticia">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdNoticia">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdNoticia">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

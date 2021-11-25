@@ -1,0 +1,105 @@
+﻿@page
+@model BigNewsRazor.Pages.NoticiasModel
+
+@{
+    ViewData["Title"] = "Noticias";
+}
+
+<h1>Noticias</h1>
+<table>
+    <tbody>
+        @foreach (var item in Model.Noticia)
+        {
+            <div class="card-deck">
+                <div class="card mb-3">
+                    <img class="card-img-top" src="@item.UrlImagen" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Titulo</h5>
+                        <p class="card-text">@item.Descripcion</p>
+                        <a href="@item.UrlNoticia" target="_blank" class="btn btn-primary"> Leer Mas </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </tbody>
+</table>
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].Titulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].Contenido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].FechaPublicacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].UrlNoticia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].UrlImagen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].AutorNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].CategoriaNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].EstadoNavigation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia[0].PaisNavigation)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.Noticia) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contenido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaPublicacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrlNoticia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrlImagen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AutorNavigation.IdAutor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriaNavigation.IdCategoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstadoNavigation.IdEstado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaisNavigation.IdPais)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.IdNoticia">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.IdNoticia">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.IdNoticia">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

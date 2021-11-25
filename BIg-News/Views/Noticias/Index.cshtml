@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ClassLibraryB.Models.Noticia>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Noticias</h1>
+
+<p>
+    <a asp-action="Create">Crear Nueva Noticia</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaPublicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutorNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaisNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaPublicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutorNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaisNavigation.Nombre)
+            </td>
+            <td>
+                <button>
+                    <a class="alert-dark" asp-action="Edit" asp-route-id="@item.IdNoticia">Editar</a>
+                </button>
+                <button>
+                    <a class="alert-light" asp-action="Details" asp-route-id="@item.IdNoticia">Detalles</a>
+                </button>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
